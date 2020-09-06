@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Post from './Post';
+<<<<<<< HEAD
 import { db, auth } from './firebase';
 import { makeStyles } from '@material-ui/core/styles'
 import { Modal, Button, Input } from '@material-ui/core';
@@ -117,6 +118,22 @@ function App() {
       </Modal>
 
 
+=======
+import { db } from './firebase';
+
+
+function App() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    db.collection('posts').onSnapshot(snapshot => {
+      setPosts(snapshot.docs.map(doc => doc.data()))
+    })
+  }, []);
+
+  return (
+    <div className="app">
+>>>>>>> 6f2a718b65f26497c1ca5dc14ff6d536837f0c41
       <div className="app__header">
         <img
           className="app__headerImage"
@@ -125,6 +142,7 @@ function App() {
         />
       </div>
 
+<<<<<<< HEAD
       <Button onClick={() => setOpen(true)}>Sign Up</Button>
 
       <h1>Posts</h1>
@@ -135,6 +153,16 @@ function App() {
           <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
         ))
       }
+=======
+      <h1>Posts</h1>
+
+      {
+        posts.map(post => (
+          <Post username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+        ))
+      }
+
+>>>>>>> 6f2a718b65f26497c1ca5dc14ff6d536837f0c41
 
     </div>
   );
