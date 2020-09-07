@@ -7,7 +7,6 @@ import { Modal, Button, Input } from '@material-ui/core';
 import ImageUpload from './ImageUpload';
 
 
-//2:39
 
 function getModalStyle() {
   const top = 50;
