@@ -15,7 +15,7 @@ function Post({ postId, user, username, caption, imageUrl }) {
         .collection("posts")
         .doc(postId)
         .collection("comments")
-        .orderBy('timestamp', 'desc')
+        .orderBy("timestamp", "desc")
         .onSnapshot((snapshot) => {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
@@ -30,9 +30,9 @@ function Post({ postId, user, username, caption, imageUrl }) {
     db.collection("posts").doc(postId).collection("comments").add({
       text: comment,
       username: user.displayName,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
-    setComment('');
+    setComment("");
   };
 
   return (
@@ -60,25 +60,27 @@ function Post({ postId, user, username, caption, imageUrl }) {
         ))}
       </div>
 
-      <form className="post__form">
-        <input
-          className="post__input"
-          fullWidth="true"
-          disableUnderline="true"
-          type="text"
-          placeholder='Leave a comment...'
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-        <button
-          className="post__button"
-          disabled={!comment}
-          type="submit"
-          onClick={postComment}
-        >
-          Post
-        </button>
-      </form>
+      {user && (
+        <form className="post__form">
+          <input
+            className="post__input"
+            fullWidth="true"
+            disableUnderline="true"
+            type="text"
+            placeholder="Leave a comment..."
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <button
+            className="post__button"
+            disabled={!comment}
+            type="submit"
+            onClick={postComment}
+          >
+            Post
+          </button>
+        </form>
+      )}
     </div>
   );
 }
