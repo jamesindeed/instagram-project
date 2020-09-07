@@ -61,8 +61,9 @@ function ImageUpload({ username }) {
         placeholder="Enter a caption..."
         onChange={(event) => setCaption(event.target.value)}
         value={caption}
+        margin="dense"
       />
-      <Input className="imageUpload__file" type="file" onChange={handleChange} disableUnderline="true" />
+      <Input className="imageUpload__file" type="file" onChange={handleChange} disableUnderline="true" margin="dense" />
       <LinearProgress className="imageUpload__progress" variant="buffer" value={progress} max="100" />
       <Button className="imageUpload__uploadButton" onClick={handleUpload}>Upload</Button>
     </div>

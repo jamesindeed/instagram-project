@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+input:focus {
+  outline: none;
+}
+
+button:focus {
+  font-weight: bolder;
+  outline: none;
+}
+
+input[type='text']:focus ~ button[type='submit']{
+  background-color: #6082a3;
+  color: white;
+  transition-timing-function: ease-in-out;
+  transition-duration: 250ms;
+}

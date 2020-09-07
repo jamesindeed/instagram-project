@@ -12,11 +12,12 @@
   object-fit: contain;
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
+ 
 }
 
 .post__text {
   font-weight: normal;
-  padding: 10px;
+  padding: 20px;
 }
 
 .post__header {
@@ -27,4 +28,35 @@
 
 .post__avatar {
   margin-right: 10px;
+}
+
+.post__form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.post__input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-top: 1px solid lightgray;
+  line-height: 10px;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+
+}
+
+.post__button {
+  flex: 0;
+  border: none;
+  border-top: 1px solid lightgray;
+  color: #6082a3;
+  background-color: white;
+  object-fit: contain;
+  border-bottom-right-radius: 5px;
+}
+
+.post__comments {
+  padding: 20px;
 }

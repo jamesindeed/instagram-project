@@ -5,7 +5,6 @@ import { db, auth } from "./firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import { Modal, Button, Input } from "@material-ui/core";
 import ImageUpload from "./ImageUpload";
-import InstagramEmbed from "react-instagram-embed";
 
 function getModalStyle() {
   const top = 50;
@@ -182,6 +181,8 @@ function App() {
         {posts.map(({ id, post }) => (
           <Post
             key={id}
+            postId={id}
+            user={user}
             username={post.username}
             caption={post.caption}
             imageUrl={post.imageUrl}
